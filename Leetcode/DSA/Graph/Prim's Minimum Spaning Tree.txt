@@ -1,0 +1,22 @@
+Minimum Spanning Tree
+-It is defined for a weighted and connected undirected graph
+-A spanning tree is a tree, so no cycle and should be connected to all the vertices directly or undirectly
+-for V vertices, V-1 edges is required for spanning tree
+-It is defined for an unweighted graph
+-For a weighted graph, we need to consider all spanning trees, we need to consider their weight, then we need to find minmum weight 
+among them
+
+To solve Minimum Spanning Tree
+1. Naive Algorithm(Brute force)
+-For a weighted graph, we need to consider all spanning trees, we need to consider their weight, then we need to find minmum weight 
+among them
+2. Prim's algorithm
+-It is used to solve Minimum Spanning Tree problem
+-It is a greedy algorithm
+-It contains two sets
+ 1. Present in Minimum Spanning Tree(MST)
+ 2. Yet to be in MST
+-We pick a Vertice and find the edge which has minimum weight to connect to other vertice(greedy approach)
+-This Process goes on until no edge is left in second set
+-Thus, Minimum Spanning Tree is obtained
+

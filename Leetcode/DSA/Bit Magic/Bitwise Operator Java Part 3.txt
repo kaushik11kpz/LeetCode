@@ -1,0 +1,24 @@
+6 a. Right Shift Operator/Signed Right Shift for Positive Number
+-Oppose of left shift
+-It fills leading bit with 0
+-For x = 33,
+  -> x>>1 ----> remove trailing bit by 1, right shift the remaining bit, add 1 leading 0 bit
+  -> x>>2 ----> remove trailing bit by 2, right shift the remaining bit, add 2 leading 0 bit
+  -> x>>3 ----> remove trailing bit by 3, right shift the remaining bit, add 3 leading 0 bit
+
+-For negative number, it is known as
+b. Signed Right Shift Operator for negative number
+- It fills leading bit with 1 to keep the sign
+- For x = -2,
+  -> x>>1 ----> remove trailing bit by 1, right shift the remaining bit, add 1 leading 1 bit
+  -> x>>2 ----> remove trailing bit by 2, right shift the remaining bit, add 2 leading 1 bit
+  -> x>>3 ----> remove trailing bit by 3, right shift the remaining bit, add 3 leading 1 bit
+
+-> 11......1111 - 2^32-1 , output = -1
+-> 11......1110 - 2^32-2 , output = -2
+-> 11......1100 - 2^32-3 , output = -3
+
+7 a. Unsigned Right Shift Operator for Positive Number
+
+b. Unsigned Right Shift Operator for Negative Number
+-It fills leading bits with 0

@@ -1,0 +1,3 @@
+1. Iterative Solution
+2. Recursive Solution
+3. Logarithmic Solution- return floor(log10(n)+1)

@@ -1,0 +1,14 @@
+-- For Traveral of Graph
+1. Depth First Search(DFS) 
+-We choose to move in a specific direction until we reach to end, from there we have to choose another direction
+-Uses Stack
+2. Breadth First Search 
+-It tends to explore all direction evenly, intead of favouring one direction all the way through
+-Uses Queue
+3.Topological Sort
+-Topological Sorting means a job(vertice) is executed first before its dependencies are executed
+-Edges represent dependencies
+-For printing relation it is used with Stack and dfs or bfs
+-For other problems, it is used with indegree and queue with bfs
+
+

@@ -1,0 +1,16 @@
+Linked List represenation of tree - Binary tree
+Array Representation of binary tree - Binary heap, Segment tree
+Binary heap - used to represnt priority queue
+Segment tree - Used for ranged query.
+
+Height of binary tree
+Invert binary tree
+
+-> focus more on the base cases
+-> and logical pattern.
+
+-> If you want to compute extreme nodes, divide the solutions into two methods.
+-> Check for the logic occuring in the iterative solution of Queue.
+
+
+-> When there are more than 1 variable involve try it with helper function.

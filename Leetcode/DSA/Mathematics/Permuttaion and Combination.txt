@@ -1,0 +1,5 @@
+Permutation - It is defined as arrange of r things that can be done out of total n thing
+            - nPr = n!/(n-r)!
+Combination - It is defined as Selection of r things that can be done out of total n things
+            - nCr = n!/(n-r)!*r!
+

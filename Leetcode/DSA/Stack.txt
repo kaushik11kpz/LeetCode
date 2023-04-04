@@ -1,0 +1,20 @@
+-> push(), pop(), isEmpty() and peek() all take O(1) time. We do not run any loop in any of these operations
+In Java
+-> Operations on stack
+1. Push
+2. Pop
+3. isEmpty
+4. Search
+5. Peek
+  
+-> Average or amortized time complexity O(1) in case of arraylist implementation of stack.
+-> worst case time complexity O(1) in case of array implementation of stack.
+-> For linked list, worst cas O(1).
+
+In java
+ Stack and ArrayDeque class implement stack, ArrayDeque is preffered.
+ In single thread environment,use ArrayDeque
+ Vector class is a thread safe class which causes extra overhead as stack class inherit from it.
+
+Use two stack to solve many problems.
+You can also use just one stack for efficient solution.

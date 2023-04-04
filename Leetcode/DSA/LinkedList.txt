@@ -1,0 +1,8 @@
+To find cycle in linked list
+  -> Floyd’s Cycle-Finding Algorithm (Slow and fast pointer)
+To solve an operation on next node create a node with value 0.
+
+Reverse a  Singly LinkedList
+ -> Iterative approach - use 3 pointers.
+ -> Recursive aprocah - 
+Use 2 pointer exclusively in various problems

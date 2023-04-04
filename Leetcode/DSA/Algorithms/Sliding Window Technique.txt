@@ -1,0 +1,14 @@
+-It is a computational technique used to reduce the nested loop O(n^2) and replace it with a single loop O(n)
+
+-Working
+-A window of fix size k is used from starting of data structure and relevant info is computed
+-Then, window moves to k for furthur computation
+-This goes on until we reach at the end of data structure
+ 
+-Utilization
+1. Maximum sum of consecutive k elements
+2. Maximum/Minimum k-subarray
+3. XOR
+4. Product
+5. Sum
+

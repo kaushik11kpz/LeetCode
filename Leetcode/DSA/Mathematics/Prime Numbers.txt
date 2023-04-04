@@ -1,0 +1,3 @@
+Prime number- only divisible by 1 and itself
+            - Except 2 and 3, prime number can be represented in form of 6n+1,6n-1, n is natural number
+            

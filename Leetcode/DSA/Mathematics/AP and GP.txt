@@ -1,0 +1,11 @@
+-AP
+ -First Term -a 
+ -Common difference - d
+ -Second term, Third term - a+d, a+2d
+ -nth term - a+(n-1)d
+ -sum = n/2*(2a+(n-1)d)
+-GP
+ -First term-a
+ -Second term,Third term- ar, ar^2
+ -nth term - ar^n-1
+ -sum=a(1-r^n)/1-r

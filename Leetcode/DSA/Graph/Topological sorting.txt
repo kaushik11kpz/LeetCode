@@ -1,0 +1,51 @@
+Topological Sorting means a job(vertice) is executed first before its dependencies are executed. Edges represent dependencies.
+There can be multilple dependencies.
+Topological sorting problems is only for acyclic graph.
+
+
+-----Topological Sorting using Kahn's BFS based Algorithm
+-> It is simple BFS with an Indegree[] array to store number of indegress of a vertex.
+ Algorithm - 
+ 1- Store indegree of every vertex.
+ 2- Create a queue, q
+ 3- Add all 0 indegree vertices to the q.
+ 4- while(q is not empty){
+     a) u=q.poll
+     b) print u
+     c) For every adjacent v of u
+      i) reduce indegree of v by 1.
+      ii) If indegree of v becomes 0,
+          ad v to the q.   
+}
+
+-----Topological Sorting using DFS
+     Algorithm/Code
+      static void DFS(ArrayList<ArrayList<Integer>> adj, int u,Stack<Integer> st, boolean visited[]) 
+    { 	
+        visited[u]=true;
+        
+        for(int v:adj.get(u)){
+            if(visited[v]==false)
+                DFS(adj,v,st,visited);
+        }
+        st.push(new Integer(u));
+    }
+    
+    
+    static void topologicalSort(ArrayList<ArrayList<Integer>> adj, int V) 
+    { 
+        boolean[] visited=new boolean[V]; 
+    	for(int i = 0;i<V; i++) 
+    		visited[i] = false;
+    	Stack<Integer> st = new Stack<Integer>(); 
+        
+        for(int u=0;u<V;u++){
+            if(visited[u]==false){
+                DFS(adj,u,st,visited);
+            }
+        }
+        
+        while (st.empty() == false) 
+            System.out.print(st.pop() + " "); 
+       
+    }

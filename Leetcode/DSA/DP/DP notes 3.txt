@@ -1,0 +1,3 @@
+-->Whenever you see a question that asks for the maximum or minimum of something, consider Dynamic Programming as a possibility.
+-->The difficult part of this problem is figuring out when a negative number is "worth" keeping in a subarray.
+-->The above difficulty can be solved by using KADANE's algorithm.s

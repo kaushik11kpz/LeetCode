@@ -1,0 +1,19 @@
+  Dynamic Programming
+  1. An optimization over plain recursion
+  2. The idea is to reuse the solutions of subproblems 
+     when there are overlapping subproblems
+ 
+ Two ways to implement DP
+ 1. Memoization(Top down)
+ 2. Tabulation(Bottom up)
+
+ -> Memoization reduces the time complexity from exponential
+  to linear.
+ ->
+
+Prerequisite to Dynamic Programming
+ Recursion 
+ Sorting Algorithms – Merge Sort, Quick Sort, etc. 
+ LinkedList 
+ Trees 
+ Time and Space Complexity

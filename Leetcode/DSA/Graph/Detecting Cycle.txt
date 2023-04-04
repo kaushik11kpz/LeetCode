@@ -1,0 +1,87 @@
+---------Detect Cycle in Undirected graph.
+-> It is simple as compared to detect cycle in Directed graph.
+-> It requires a dfs with a parent variable to keep check that is the visited vertice is the parent or not.
+  Algorithm/Code - 
+  static boolean DFSRec(ArrayList<ArrayList<Integer>> adj,int s, boolean[] visited, int parent) 
+	{ 
+    	visited[s]=true;
+        
+        for(int u:adj.get(s)){
+            if(visited[u]==false){
+                if(DFSRec(adj,u,visited,s)==true)
+                    {return true;}}
+            else if(u!=parent)
+                {return true;}
+        }
+        return false;
+	} 
+	
+	static boolean DFS(ArrayList<ArrayList<Integer>> adj, int V){
+	    boolean[] visited=new boolean[V]; 
+    	for(int i = 0; i<V; i++) 
+    		visited[i] = false;
+    		
+        for(int i=0;i<V;i++){
+            if(visited[i]==false)
+                if(DFSRec(adj,i,visited,-1)==true)
+                    return true;
+        }
+        return false;
+	}
+
+
+
+-------Detect Cycle in Directed graph.
+-> It is simple dfs while maintaing a recSt[] array to check if any ancestor is already present in the recursion call stack.
+   Algorithm/Code-
+   static boolean DFSRec(ArrayList<ArrayList<Integer>> adj,int s, boolean[] visited, boolean[] recSt) 
+	{ 
+    	visited[s]=true;
+    	recSt[s]=true;
+        
+        for(int u:adj.get(s)){
+            if(visited[u]==false && DFSRec(adj,u,visited,recSt)==true)
+                    {return true;}
+            else if(recSt[u]==true)
+                {return true;}
+        }
+        recSt[s]=false;
+        return false;
+	} 
+	
+	static boolean DFS(ArrayList<ArrayList<Integer>> adj, int V){
+	    boolean[] visited=new boolean[V]; 
+    	for(int i = 0; i<V; i++) 
+    		visited[i] = false;
+    		
+    	boolean[] recSt=new boolean[V]; 
+    	for(int i = 0; i<V; i++) 
+    		recSt[i] = false;
+    		
+        for(int i=0;i<V;i++){
+            if(visited[i]==false)
+                if(DFSRec(adj,i,visited,recSt)==true)
+                    return true;
+        }
+        return false;
+	}      
+ 
+
+
+-------Detect Cycle in Directed graph using Kahn's algorithm.
+-> Algorithm - 
+ 1- Store indegree of every vertex.
+ 2- Create a queue, q
+ 3- Add all 0 indegree vertices to the q.
+count=0
+ 4- while(q is not empty){
+     a) u=q.poll
+     b) print u
+     c) For every adjacent v of u
+      i) reduce indegree of v by 1.
+      ii) If indegree of v becomes 0,
+          ad v to the q.  
+      iii) count++;
+}
+return (count!=V)
+

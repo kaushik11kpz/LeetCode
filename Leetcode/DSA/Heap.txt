@@ -1,0 +1,33 @@
+Binary heap 
+->Used to implement heap Sort algorithm
+->Used to implement Priority Queue.
+
+
+A binary heap is a complete binary tree
+It is a complete binary tree so it can be represented in array format
+Two types of heap data structure
+1. Max Heap
+2. Min Heap
+
+
+->It is abinary tree data structure which can be represented as array without wasting any space
+and having proper left, right, parent relationships.
+->The multiple advantages of binary heap data structure are-
+1. Items at contigous location, thus random access.
+2. Cache friendly, loclity of reference
+3. Complete binary tree, so height of tree is minimum possible.
+
+->Min heap
+1. It is a complete binary tree.
+2. Every node has value smaller than its descendants.
+3. Internally represented as an array.
+
+ 
+Priority Queue is useful in standard algorithms like 
+- Dijkstra's sortest path algorithm.
+- Prims minimum spanning tree algorithm
+- Huffman Coding
+It is used where items are in a queue and each item in queue has specific priority.
+
+
+

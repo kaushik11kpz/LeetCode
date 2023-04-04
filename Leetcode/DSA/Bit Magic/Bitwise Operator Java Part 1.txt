@@ -1,0 +1,13 @@
+1. Bitwise AND(&)
+-Java represent Binary digits as 32 bit
+-If both bits are 1 then Bitwise AND is 1
+-If any bit is not 1, then Bitwise AND is 0
+
+2. Biwise OR(|)
+-If any of bit is 1, Bitwise OR is 1
+-If both bits are 0, Bitwise OR is -
+
+3. Bitwise XOR(^)
+-Output is 1, when two input bits are different
+-Output is 0, when both input bits are same
+

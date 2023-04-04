@@ -1,0 +1,20 @@
+Arrays and Dynamic Arrays
+  1. Techniques used to solve problems
+     1. Brute Force
+     2. Two pointer 
+     3. Sliding Window
+     4. Binary Search
+     5. Sort with Two pointer approach
+     6. Using Map
+     7. Using min and max
+     8. Use different logic or algorithms(make them yourself)
+     9. Use Boyer Moore's Majority Voting Algorithm(for optimization)
+     10. Make some logical changes to already done code via 
+     11. Bit manipulation
+     12. Kidane's algorithm(currSum & maxSum)
+->For union of arrays - Use Set DS
+->For shift by k use
+   ->basic approach
+   ->Modulus
+   ->reverse function
+

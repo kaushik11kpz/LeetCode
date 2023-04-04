@@ -1,0 +1,12 @@
+1. Cycle Detection - If backedge is found in the graph. The graph contains cycle.
+2. Topological Sorting - It is particularly used for dependency graph i.e when you have dependency among the graph.
+  Ex- Big File Utility
+3. Strongly Connected Component - It uses 2 algorithm.
+   1. Kosaraju algo - 2 dfs traversal
+   2. Tarjan Algo - optimization of above algo(1 dfs traversal)
+4. Solving Maze and Similar Puzzles - DFS is always preffered over BFS.
+   Ex - Problems with multiple stages and multilple final stage and one or two of those final stage is solution.
+-> Backtracking Algorithm are all based on DFS
+5. Path Finding - DFS or BFS
+   DFS is natural in printing the path.
+   

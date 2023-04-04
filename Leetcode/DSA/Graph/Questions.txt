@@ -1,0 +1,18 @@
+1. All Path from source to target
+-> While iteration over adjacent elements, after each adjacent element call a dfs function with that element as a source.
+2. Minimum Number of Vertices to Reach All Nodes
+3. Keys and Rooms
+4. Parallel Courses
+5. Reorder Routes to Make All Paths Lead to the City Zero
+
+Question on bfs 
+1. No. of islands
+2. Rotten Oranges
+Problem Arising -
+-Above question are purely based on bfs for which I need to know a source vertex or number of vertices to start
+-Either of which I don't have as input is given in form of matrix as a graph.
+
+
+
+
+ 

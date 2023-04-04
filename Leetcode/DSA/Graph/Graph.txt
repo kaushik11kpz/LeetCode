@@ -1,0 +1,56 @@
+Graph
+-Vertices
+-Edges
+-Degree
+-Indegree
+-Outdegree
+-Walk
+-Path
+-Cyclic
+-Acyclic
+-Non-directed
+-Directed
+
+Graph Representation
+-Adjacency Matrix
+-Adjacency List
+
+Adjacency Matrix
+-> It is a symmetric matrix for undirected graph
+-> We use hashtable for efficient implementation as well as for reverse mapping if vertices are named in String
+Properties of Adjacency Matrix representation
+-Space = O(v*v)
+Operations
+-Check if U & V are adjacent - O(1)
+-Find all vertices adjacent to U - O(V)
+-Find degree of U - O(V)
+-Add/Remove an Edge - O(1)
+-Add/Remove a Vertex - O(V^2)
+
+Adjacency List
+-> Problems with Adjacency matrix representation is that it stores reduntand information, which takes space
+-> In list representation we only store vertices which are adjacent to a vertex V, which makes searching adjacent operation faster
+-> In adjacency list representation array of lists where lists are most popularly represented as
+1- Dynamic sized array
+2- Linked List
+-Space
+  Undirected - O(V+2E)
+  Directed - O(V+E)
+-Operations
+-Check if there is an edge from U to V - O(V)
+-Find all adjacent of U - O(degree(u))
+-Find degree of U - O(1)
+-Add an edge - O(1)
+-Remove an edge - O(V)
+
+Question
+1. BFS - A given graph with a source
+   BFS - A disconnected graph with a source.
+2. DFS - A given graph with a source
+   DFS - A disconnected graph with a source.
+3. Number of islands. 
+4. Number of provinces - DFS, BFS (count connected components)
+5. Shortest path in an unweighted graph - Solution - Simple BFS with a dist[] array.
+6. Detect cycle in Undirected Graph - Solution - DFS with a parent variable to keep track of if visited element is parent.
+
+

@@ -1,0 +1,19 @@
+-> BFS is a graph traversal algo that takes a source traverses all the vertices that are just one edge away then all the vertices 
+which are two edges away.
+-> Advantage
+Always finds the shortest path from a source to all vertices.
+
+
+1. Shortest Path in an Unweighted Graph.
+It finds the shortest path in unweighted graph.
+For weighted graph
+-> Dijkstra's Algo - based on BFS
+   Difference is instead of using normal queue, Dijkstra's uses priority queue and weights of edges to find shortest path.
+2. Crawler in search engine - Ex- In web, goes from one document to adjacent document to adjacent document.
+3. Peer to Peer Networks- Bit torrent.
+4. Social Networking Search - First friends come then adjacent of friends i.e Mutual friends than adjacents of friends of friends
+5. Garbage Collection - Which memory location currently not reached by program, thus delete that memory.
+6. Cycle Detection
+7. Ford Fulkerson Algorithm - Maximum flow algorithm, better for BFS.
+8. Broadcasting
+

@@ -1,0 +1,31 @@
+ASCII Character
+26 lower case
+26 upper case
+32 control character
+128 total ascii character
+Limited set of character
+->  Sort string in O(n) time
+Java string
+Specific functions available
+== references are compared.
+.equals - checks content.
+.compareTo - compares lexicographically.
+ String class - Immutable - thread safety not required
+ Mutable Classses
+ StringBuffer - Thread Safe
+ StringBuilder - to write program in single thread
+
+TO SOLVE
+   1. Use individual characters as indexes in order to mark the count
+   2. Use HashMap or counting sort to count frequency of occurence of characters
+   3. Use array of 26 letters with indiviual characters as occurences
+   4. Use count and additional string variable for normal slovin purposes.
+
+-> If set data structure is used for storage- space complexity - O(1)
+   sice string is only 256, set size is 256.
+
+Sliding Window Algorithm
+1. Two pointers, both at start, moving according to given solution.
+
+Important question 
+  1. Longest string without repeating character.

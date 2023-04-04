@@ -1,0 +1,5 @@
+Factors-All the numbers that divide a number completely, without any remainder are called Factors
+       -That specific number is called multiple of each of its factors
+
+LCM-Least Common Multiple of two or more numbers is the smallest number other than 0, that is multiple of each of those numbers
+HCF-Highest Common Factor of two or more given numbers is the highest number that exactly divides each of those given numbers
