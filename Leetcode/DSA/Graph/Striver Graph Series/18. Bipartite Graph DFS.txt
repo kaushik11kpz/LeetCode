@@ -1,0 +1,41 @@
+Question - Color 2 adjancent nodes with 2 different color. If it is possible throughout the graph, the graph is bipartite
+Observation
+1. Linear Graph with no cycle are always bipartite.
+2. Any cyclic graph with even cycle length is also bipartite.
+3. A cycle graph with odd cycle length is not bipartite.
+
+Here, we will use DFS
+-Difference with BFS at 2 places.
+1. We will add an extra argument in the dfs call known as color, which represents color of current node, it should be alternated with adjancent neighbour in every call.
+2. For every dfs call we need to check if that particular dfs is false, if it is, no need to go furthur jusr return false.
+
+Code
+TC- O(m*n)
+SC- O(m*n)
+
+public boolean isBipartite(int[][] graph) {
+        int n = graph.length;
+        int color[] = new int[n];
+        for(int i=0;i<n;i++){
+            if(color[i] == 0){
+                if(dfs(i,graph,color,1) == false){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    public boolean dfs(int node, int graph[][], int color[], int col){
+        color[node] = col;
+        for(int nei : graph[node]){
+            if(color[nei] == 0){
+                if(dfs(nei,graph,color,-col) == false){
+                    return false;
+                }
+            }
+            else if(color[nei] == color[node]){
+                return false;
+            }
+        }
+        return true;
+    }

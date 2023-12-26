@@ -1,0 +1,51 @@
+Ques-Find all number of distinct islands.
+Sol- Use DFS/BFS 
+-Use a set to store the coordinates (substract actual coordinates with base coordinates and then store the result) of the found shape.
+-Use a visited array of given input size and a HashSet to store arraylist of string.
+-Peform DFS/BFS.
+
+TC- O(m*n) + O(log(m*n)) + O(m*n*4)
+SC- O(m*n)
+
+import java.util.*;
+
+public class NumberOfDistinctIslands {
+
+	public int countDistinctIslands(int grid[][]) {
+		int m = grid.length;
+		int n = grid[0].length;
+		int visited[][] = new int[m][n];
+		HashSet<ArrayList<String>> set = new HashSet<>();
+		for(int i=0;i<m;i++) {
+			for(int j=0;j<n;j++) {
+				if(grid[i][j] == 1 && visited[i][j] == 0) {
+					ArrayList<String> list = new ArrayList<>();
+					dfs(i,j,grid,visited,list,i,j);
+					set.add(list);
+				}
+			}
+		}
+		return set.size();
+	}
+	public void dfs(int row, int col, int grid[][], int visited[][], ArrayList<String> list, int baseRow, int baseCol) {
+		visited[row][col] = 1;
+		int stRow = row-baseRow;
+		int stCol = col-baseCol;
+		list.add(toString(stRow,stCol));
+		int m = grid.length;
+		int n = grid[0].length;
+		int delRow[] = {-1,0,1,0};
+		int delCol[] = {0,-1,0,1};
+		
+		for(int i=0;i<4;i++) {
+			int nrow = row + delRow[i];
+			int ncol = col + delCol[i];
+			if(nrow >= 0 && nrow < m && ncol >= 0 && ncol < n && visited[nrow][ncol] == 0 && grid[nrow][ncol] == 1) {
+				dfs(nrow,ncol,grid,visited,list,baseRow,baseCol);
+			}
+		}
+	}
+	public String toString(int r, int c) {
+		return Integer.toString(r) +" "+ Integer.toString(c);
+	}
+}

@@ -1,0 +1,43 @@
+-Kahn's Algorithm | Topological Sort BFS
+-Solution
+-The concept is in Topological Sort every edge between u and v, u must come before v, meaning indgree[u] must be less the indgree[v].
+-indegree[u]=0 meand u does not have any incoming edges and can be called first in topologocal sort.
+-Create an indegree[] array to store the indegrees of each node.
+-Traverse on that indegree[] array and if an node has indegree=0, add it to queue.
+-Create a result[] array of size of all nodes(V).
+-Iterate over the queue until queue is empty, poll out a node and since, it has 0 indegree store add it to result.
+-Traverse the neighbour of polled out node and decrease their neigbour indgree by 1, once that neigbour indegree=0, add it to queue.
+-return res array.
+
+Code
+TC-O(V+E)
+SC-O(V)
+
+public int[] topoSortKahn(int V, ArrayList<ArrayList<Integer>> adj) {
+		int indegree[] = new int[V];
+		for(int i=0;i<V;i++) {
+			for(int nei : adj.get(i)) {
+				indegree[nei]++;
+			}
+		}
+		Queue<Integer> queue = new LinkedList<>();
+		for(int i=0;i<V;i++) {
+			if(indegree[i] == 0) {
+				queue.add(i);
+			}
+		}
+		int res[] = new int[V];
+		int i=0;
+		while(!queue.isEmpty()) {
+			int node = queue.poll();
+			res[i++] = node;
+			for(int nei : adj.get(node)) {
+				//reduce the indegree by 1
+				indegree[nei]--;
+				if(indegree[nei] == 0) {
+					queue.add(nei);
+				}
+			}
+		}
+		return res;
+	}

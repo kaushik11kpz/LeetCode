@@ -1,0 +1,70 @@
+Question: 0/1 matrix
+
+Solution:
+Since, it involve moving distances, we will use multisource BFS to solve this question
+-Create a visited[] and distance[] array to store the visited and the minimum distance of 1 from each cell respectively.
+-Create a queue of int[] array to store row,column and distance as element to that array.
+-Traverse the given 2D matrix input, wherever mat[i][j]=1, add i,j,and distance(0) to queue as an array.
+-Now, create direction arrays, rows and columns.
+-Start traversing queue until queue is empty.
+-Inside this traversal, we take out an input of queue, assign -> currRow=arr[0], currCol=arr[1], steps=arr[2] and then that queue.
+and assign distance[currRow][currCol]=steps;
+-Traverse around all 4 directions using directions array and create new rows and columns by adding currRows and currCols with directions rows and columns, then verify those newsly generated rows and columns as valid, if they are and those cells are not visited add them to queue with newRow,newCol,steps+1 as element of array.
+-Return distance array
+
+--Code
+
+TC-O(N+E)
+SC-O(N+E)
+public int[][] nearest(int[][] grid)
+    {
+        int m=grid.length;
+        int n=grid[0].length;
+        
+        int visited[][] = new int[m][n];
+        int distance[][] = new int[m][n];
+        
+        Queue<int[]> queue = new LinkedList<>();
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j] == 1){
+                    queue.add(new int[] {i,j,0});
+                    visited[i][j]=1;
+                }else{
+                    visited[i][j]=0;
+                }
+            }
+        }
+        
+        int dirRow[] = {-1,0,1,0};
+        int dirCol[] = {0,-1,0,1};
+        
+        while(!queue.isEmpty()){
+            int arr[] = queue.peek();
+            int row = arr[0];
+            int col = arr[1];
+            int steps = arr[2];
+            queue.remove();
+            distance[row][col] = steps;
+            
+            for(int i=0;i<4;i++){
+                int numRow = row + dirRow[i];
+                int numCol = col + dirCol[i];
+                if(numRow >= 0 && numRow < m && numCol >= 0 && numCol < n && visited[numRow][numCol] == 0){
+                    visited[numRow][numCol] = 1;
+                    queue.add(new int[] {numRow,numCol,steps+1});
+                }
+            }
+            
+        }
+        return distance;
+    }
+
+Seasons Mall – AWFIS Co working Space , 2nd Floor , near Magarpatta City , Hadapsar 
+
+e-Zest Solutions
+3rd Floor, Building IT-09 Qubix Business Park - SEZ, Blue Ridge Town Pune, Phase 1, Hinjewadi Rajiv Gandhi Infotech Park, Hinjawadi, Pune, Maharashtra 411057
+
+e-Zest Solutions 
+2nd floor, Anand Nilay Business Center, Near Karve Statue, Karve Road, Kothrud, Pune, Maharashtra 411029
+9844093637 - Divya

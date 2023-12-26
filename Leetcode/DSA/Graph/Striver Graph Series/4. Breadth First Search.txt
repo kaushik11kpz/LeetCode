@@ -1,0 +1,13 @@
+-BFS(Breadth First Search)
+-It is a traversal technique.
+-It is also called Level wise traversal.
+-Depending on the starting node, traversal changes in breadthwise manner.
+-Used for Shortest path in a solution.
+
+--Configuration
+-We need a queue to store the first node then subsequently all the nodes of the graph.
+-We need a boolean visited[] to keep note of the nodes already visited
+-We add first node to queue and until queue becomes empty we keep doing following operations.
+-Take the top node out of the queue, curr, store it/print it, then traverse to all the neigbouring nodes(Adjacent nodes) of the curr and add them to the queue and keep doing it until queue becomes empty..
+-Time complexity - O(N+2E). 2E->Total degrees in a undirected graph.
+-Space complexity - O(N).

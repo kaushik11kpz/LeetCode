@@ -1,0 +1,4 @@
+Question - Number of Enclaves
+Sol: Same as surrounded reason without visited matrix.
+SC-O(m*n)
+TC-O(m*n)

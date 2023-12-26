@@ -1,0 +1,52 @@
+Question - Color 2 adjancent nodes with 2 different color. If it is possible throughout the graph, the graph is bipartite
+Observation
+1. Linear Graph with no cycle are always bipartite.
+2. Any cyclic graph with even cycle length is also bipartite.
+3. A cycle graph with odd cycle length is not bipartite.
+
+-Now, to solve it we will use Queue data structure with color array.
+-Declare a color array and mark all element as 0, iterate over it, if any element is 0, call a function with that position as argument to check for bipartite.
+-In checkBipartite function, create a queue, add that position argument in queue and marl color[position] = 1.
+-Iterate over queue until it is empty, pick out top element curr, traverse to all adjancent position of that top elemenet inside input graph.
+-If in an adjancent position  color[adj]==0, add it to queue, mark it as color[adj]=-color[curr].
+-Else if both curr and adj color postion match return false.
+
+
+Code
+
+TC- O(m*n)
+SC- O(m*n)
+
+import java.util.*;
+
+public class BipartiteBFS {
+	public boolean isBipartite(int[][] graph) {
+        int n = graph.length;
+        int color[] = new int[n];
+        for(int i=0;i<n;i++){
+            if(color[i] == 0){
+                if(checkForBipartite(i,graph,color) == false){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    public boolean checkForBipartite(int node, int graph[][], int color[]){
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(node);
+        color[node] = 1;
+        while(!queue.isEmpty()){
+            int curr = queue.poll();
+            for(int val : graph[curr]){
+                if(color[val] == 0){
+                    queue.add(val);
+                    color[val] = -color[curr];
+                }else if(color[val] == color[curr]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}

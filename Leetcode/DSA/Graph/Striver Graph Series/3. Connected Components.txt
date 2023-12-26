@@ -1,0 +1,21 @@
+--Connected Components
+-Disconnected Graph
+-The graph have been broken down into 4 components.
+-Each component consists of one or mode nodes.
+
+--Traversal Algorithm on Connected Components
+-We cannot traverse all the nodes of a disconnected graph(connected components).
+-This is where we use visited[] array of size equal to total nodes(if 1 based indexing, size=nodes+1) which keeps check the nodes we already visited.
+-Since, in connected component graph(disconnected graph), we will not be able to reach all the nodes with just once traversal.
+-Thus, we will use a for loop from 1st node to last node and for each node we will check whether this node is visited or not,
+by checking the visited array, if it is not visited, we will visit and mark that node as true in visited[] array and traverse to all
+the other nodes in that specific components and mark them visited too.
+-Now, after visited all the nodes of that component control will be back in the for loop and for next node, we will check whether it
+is visited or not.
+-Thus, this is the way to traverse all the nodes of disconnected graph(connected components).
+-Ex, n=10;
+-for(int i=1;i<=10;i++){
+    if(!visited[i]){
+       traverse(i)
+    }  
+  }

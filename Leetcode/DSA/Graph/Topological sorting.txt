@@ -20,7 +20,7 @@ Topological sorting problems is only for acyclic graph.
 
 -----Topological Sorting using DFS
      Algorithm/Code
-      static void DFS(ArrayList<ArrayList<Integer>> adj, int u,Stack<Integer> st, boolean visited[]) 
+      static void DFS(ArrayList<ArrayList<Integer>> adj, int u, Stack<Integer> st, boolean visited[]) 
     { 	
         visited[u]=true;
         

@@ -1,0 +1,45 @@
+DFS
+-It is based on going on depth in a node.
+-DFS traversal depends upon starting node.
+-Each starting node can print a different DFS.
+-The algorithms that goes in depth and depth and solves is recursion.
+-Thus recursion is used in DFS.
+
+
+--In a question if the Adjancy list is given.
+Step 1
+-Create a boolean visited[] array.
+Step 2
+-Start with a starting node, check if it is visited, if it is not call dfs on that node, mark it as visited and store it.
+
+--Example
+class Solution {
+    public static void dfs(int node, ArrayList<ArrayList<Integer>> adj, int visited[], ArrayList<Integer> ans) {
+        visited[node] = true;
+        ans.add(node);
+        
+        for(int it : adj.get(node)){
+            if(!visited[it]){
+                dfs(it, adj,visited,ans)
+            }
+        }
+    }
+    
+    public ArrayList<Integer> dfsOfGraph(int V, ArrayList<Arraylist<Integer>> adj){
+        booleav visited[] = new boolean[V]
+        ArrayList<Integer> ans = new ArrayList<>();
+        dfs(0,asj,visited,ans);
+        return ans;
+    }
+}
+
+--Space Complexity
+-For storing in a list - O(n)
+-For visited[] array - O(n)
+-Recursion stack worst case - O(n)
+-Total - O(n)
+
+--Time Complexity
+-For calling every node once - O(n)
+-For traversing neighbour of each node - O(n+2e).
+-Total = O(n) + O(N+2E)

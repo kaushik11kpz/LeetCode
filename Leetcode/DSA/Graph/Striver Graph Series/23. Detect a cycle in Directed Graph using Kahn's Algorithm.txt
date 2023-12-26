@@ -1,0 +1,39 @@
+--Detect cycle in Directed Graph Using BFS | Topological Sort BFS | Kahn's Algorithm
+--Observation 
+-In Topological Sort using BFS or Kahn's Algorithm we make use of indegree of nodes.
+-If count of topoSort exactly have V element, then there is no cycle,else cycle exists.
+-While traversal the queue when we find it empty as there after first few nodes there are no nodes with 0 indgree and the count of total indegree 0 nodes is less than total nodes, we return true,else false.
+
+Code
+TC-O(V+E)
+SC-O(V)
+
+public boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
+		int indegree[] = new int[V];
+		for(int i=0;i<V;i++) {
+			for(int nei : adj.get(i)) {
+				indegree[nei]++;
+			}
+		}
+		Queue<Integer> queue = new LinkedList<>();
+		for(int i=0;i<V;i++) {
+			if(indegree[i] == 0) {
+				queue.add(i);
+			}
+		}
+		int count = 0;
+		while(!queue.isEmpty()) {
+			int node = queue.poll();
+			count++;
+			for(int nei : adj.get(node)) {
+				indegree[nei]--;
+				if(indegree[nei] == 0) {
+					queue.add(nei);
+				}
+			}
+		}
+		if(count == V) {
+			return true;
+		}
+		return false;
+	}

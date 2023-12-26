@@ -1,0 +1,88 @@
+Course Schedule 1
+There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
+
+For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
+Return true if you can finish all courses. Otherwise, return false.
+
+--Observation
+1. Use Topological sort with BFS/Kahn's Algorithm
+2. DFS to detect cycle in Directed Graph(using visited[] and pathVisited[]).
+Code
+TC-O(V+E)
+SC-O(V)
+
+public boolean canFinish(int numCourses, int[][] prerequisites) {
+        //Topological Sort BFS | Kahn's Algorithm
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        for(int i=0;i<numCourses;i++){
+            adj.add(new ArrayList<>());
+        }
+        int m=prerequisites.length;
+        for(int i=0;i<m;i++){
+            adj.get(prerequisites[i][1]).add(prerequisites[i][0]);
+        }
+        int indegree[] = new int[numCourses];
+        for(int i=0;i<numCourses;i++){
+            for(int nei : adj.get(i)){
+                indegree[nei]++;
+            }
+        }
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i=0;i<numCourses;i++){
+            if(indegree[i] == 0){
+                queue.add(i);
+            }
+        }
+        int count=0;
+        while(!queue.isEmpty()){
+            int node = queue.poll();
+            count++;
+            for(int nei : adj.get(node)){
+                indegree[nei]--;
+                if(indegree[nei] == 0){
+                    queue.add(nei);
+                }
+            }
+        }
+        if(count==numCourses){
+            return true;
+        }
+        return false;
+    }
+
+
+-public boolean canFinish(int numCourses, int[][] prerequisites) {
+        //DFS
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        for(int i=0;i<numCourses;i++){
+            adj.add(new ArrayList<>());
+        }
+        for(int prereq[] : prerequisites){
+            adj.get(prereq[1]).add(prereq[0]);
+        }
+        int visited[] = new int[numCourses];
+        int pathVisited[] = new int[numCourses];
+        for(int i=0;i<numCourses;i++){
+            if(visited[i] == 0){
+                if(dfs(i,visited,pathVisited,adj) == false){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    public boolean dfs(int node, int visited[], int pathVisited[], ArrayList<ArrayList<Integer>> adj){
+        visited[node]=1;
+        pathVisited[node]=1;
+        for(int nei : adj.get(node)){
+            if(visited[nei] == 0){
+                if(dfs(nei,visited,pathVisited,adj) == false){
+                    return false;
+                }
+            }else if(pathVisited[nei] == 1){
+                return false;
+            }
+        }
+        pathVisited[node]=0;
+        return true;
+    }

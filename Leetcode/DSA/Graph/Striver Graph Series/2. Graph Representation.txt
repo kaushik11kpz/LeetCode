@@ -1,0 +1,29 @@
+--Store/Represent graph data structure
+Step 1- Input in form of node/vertex and edges
+Step 2- How to store these given input.
+-Question also states that whether the given graph is undirected or directed.
+-n,m ->n=nodes, m=edges
+-In m lines there will edges from one node to another.
+
+
+--Storing
+-Two ways to store
+1.Adjacency matrix
+2.Adjacency List
+-In matrix we use a 2D matrix.
+-Space complexity is O(n^2)
+-More space is wasted(Costly).
+-For 1 based indexing, we create a 2D array of size [n+1][n+1]
+-
+
+-In list we use List of list
+-Space complexity - O(N+2E). For every node we are storing twice(as every edge has 2 nodes).
+-Mostly Adjancency List is used as less space is required(Cheaper).
+-Every index of an ArrayList store nodes which are adjacent to them.
+-For 1 based indexing, we create a list, whose size [n+1].
+-For directed graph space complexity is O(N+E).
+
+
+--Weighted Graph
+-In adjancency matrix instead of storing one inside cell, we will store the weight of that edge between those two nodes.
+-In adjacency list, we will store list of pairs<Node,EdgeWeight> inside list.

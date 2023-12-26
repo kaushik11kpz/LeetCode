@@ -1,0 +1,40 @@
+Points
+1. Since, we cannot use the concept of detection of Undirected graph cycle, we will think of something else.
+2. In a directed graph, on the same path, node has to be visited again, then there is a cycle in that directed graph.
+Solution
+-Use a visited[] array and pathVisited[] array.
+-Whenever we iterate over a node first time mark it as visited and pathVisited, now whenever a node has visited all its neighbour return false and unmark them from visited.
+-If a node is visited but not pathVisited, this means it has already been visited and we did not enounter any cycle in that path, ignore it.
+-If node is visited and pathVisited, keep on return true fro there.
+
+-Code
+TC-O(V+E)
+SC-O(V)
+public boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
+		int visited[] = new int[V];
+		int pathVisited[] = new int[V];
+		for(int i=0;i<V;i++) {
+			if(visited[i] == 0) {
+				if(dfsCheck(i,visited, pathVisited,adj) == true) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	public boolean dfsCheck(int node, int visited[], int pathVisited[], ArrayList<ArrayList<Integer>> adj) {
+		visited[node] = 1;
+		pathVisited[node] = 1;
+		for(int nei : adj.get(node)){
+			if(visited[nei] == 0) {
+				if(dfsCheck(nei,visited,pathVisited,adj) == true){
+					return true;
+				}
+			}
+			else if(pathVisited[nei] == 1) {
+				return true;
+			}
+		}
+		pathVisited[node] = 0;
+		return false;
+	}

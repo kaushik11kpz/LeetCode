@@ -1,0 +1,60 @@
+--Find Eventual Safe States
+There is a directed graph of n nodes with each node labeled from 0 to n - 1. The graph is represented by a 0-indexed 2D integer array graph where graph[i] is an integer array of nodes adjacent to node i, meaning there is an edge from node i to each node in graph[i].
+
+A node is a terminal node if there are no outgoing edges. A node is a safe node if every possible path starting from that node leads to a terminal node (or another safe node).
+
+Return an array containing all the safe nodes of the graph. The answer should be sorted in ascending order.
+
+--Observation
+1. Anyone part of a cycle can never be a safe node.
+2. Anyone that leads to a cycle can never be safe node.
+-We will sove it using Cycle Detection of Directed Graph using DFS.
+-Once a dfs calls gets completed only then we will call that node as safe node and if that call gets a cycle anywhere in the path, that node is not a safe node.
+-If a dfs call get both visited and pathVisited as marked 1, that node for dfs call is not a safe node.
+-If a dfs call gets only one visited array mark, then we have to check other path too.
+-If a dfs is successfully completed for a node, we call that node as safe node and mark in as 1 in check[] array.
+
+Code
+TC-O(V+E)
+SC-O(V)
+
+	public List<Integer> eventualSafeNodes(int V, List<List<Integer>> adj){
+		int visited[] = new int[V];
+		int pathVisited[] = new int[V];
+		//to mark all safe nodes
+		int check[] = new int[V];
+		for(int i=0;i<V;i++) {
+			if(visited[i] == 0) {
+				//once we get cycle we are not returning true for all because we need to get all the safe 
+				///nodes and not like previously where we have to return true or false for cycle detection
+				dfsCheck(i,visited,pathVisited,check,adj);
+			}
+		}
+		List<Integer> list = new ArrayList<>();
+		for(int i=0;i<V;i++) {
+			if(check[i] == 1) {
+				list.add(i);
+			}
+		}
+		return list;
+	}
+	public boolean dfsCheck(int node, int visited[], int pathVisited[], int check[], List<List<Integer>> adj){
+		visited[node]=1;
+		pathVisited[node]=1;
+		check[node]=0;
+		for(int nei:adj.get(node)) {
+			if(visited[nei] == 0) {
+				//if there is a cycle it will break over here
+				if(dfsCheck(nei,visited,pathVisited,check,adj)==true) {
+					return true;
+				}
+				//if there is a cycle it will break over here
+			}else if(pathVisited[nei] == 1) {
+				return true;
+			}
+		}
+		//here it means no cycle is found for that particular node's dfs call.
+		check[node]=1;
+		pathVisited[node]=0;
+		return false;
+	}
